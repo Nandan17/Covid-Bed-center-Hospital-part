@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="#">
+    <meta name="author" content="#">
+    <meta name="keywords" content="#">
+
+    <!-- Title Page-->
+    <title>Hospital Part</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" />
+    <!-- Icons font CSS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-design-icons-iconfont@6.1.0/dist/material-design-icons.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+    <!-- Main CSS-->
+    <link href="static/main.css" rel="stylesheet" media="all">
+</head>
+
+<body>
+
+<div id="wrapper">
+    <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+        <div class="wrapper wrapper--w790">
+            <div class="card card-5">
+                <div class="card-heading">
+                    <h2 class="title">Search Here for Hospitals</h2>
+                </div>
+                <div class="card-body">
+                    
+                    <div style="padding-left: 0px;" class="container">
+                        
+                            <div class="col-md-12">
+                                <form href="/" method="POST">
+                                    {{ form.hidden_tag() }}
+                                    <div class="row">
+
+
+                                        <div style="padding-left: 0px;" class="col-sm-6">
+                                            <div style="margin-top: 25px;" class="form-group">
+                                                <label for="na" style="margin-left: 30px;" class="form-label "><b>Hospital Name</b></label>
+                                                <span class = "col-sm-4">
+                                                    <!-- <select id="na" class="custom-select selectFilter" >
+                                                        {%for names in form.name %}
+                                                        <option value="" >{{names.data}}</option>
+                                                        {%endfor%}
+                                                    </select> -->
+                                                    {{ form.name(id="na",class="custom-select selectFilter") }}
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <div style="margin-top: 25px;" class="form-group">
+                                                <label for="area" style="margin-left: 30px;" class="form-label "><b>Hospital Area</b></label>
+                                                <span class = "col-sm-4">
+                                                    <!-- <select id="area" class="custom-select selectFilter">
+                                                        {%for areas in form.area %}
+                                                        <option >{{areas.data}}</option>
+                                                        {%endfor%}
+                                                    </select> -->
+                                                    {{ form.area(id="area",class="custom-select selectFilter")}}
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <div style="padding-left: 0px;" class="col-sm-6">
+                                            <div style="margin-top: 25px;" class="form-group">
+                                                <label for="district" style="margin-left: 30px;" class="form-label "><b>District</b></label>
+                                                <span class = "col-sm-4">
+                                                    <!-- <select id="district" class="custom-select selectFilter">
+                                                        {%for districts in form.district %}
+                                                        <option >{{districts.data}}</option>
+                                                        {%endfor%}
+                                                    </select> -->
+                                                    {{ form.district(id="district",class="custom-select selectFilter")}}
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <div style="margin-top: 25px;" class="form-group">
+                                                <label for="state" style="margin-left: 30px;" class="form-label "><b>State</b></label>
+                                                <span class = "col-sm-4">
+                                                    <!-- <select id="state" class="custom-select selectFilter">
+                                                        {%for states in form.state %}
+                                                        <option >{{states.data}}</option>
+                                                        {%endfor%}
+                                                    </select> -->
+                                                    {{ form.state(id="state",class="custom-select selectFilter")}}
+                                                </span>
+                                            </div>
+                                        </div>  
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <div style="margin-top: 25px;" class="form-group">
+                                            <label class="form-label "><b>Sort the beds according to</b></label>
+                                            <span class = "col-sm-4">
+                                                
+                                                    <!-- {%for bed in form.beds %}
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="optradio" > {{bed.data}} </label>
+                                                      </div>
+                                                    {%endfor%} -->
+                                                    {{ form.beds(class="radio") }}
+                                                
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <!--<div style="text-align: center;">
+                                        <button type="button" class="btn btn-secondary">Search</button>
+                                    </div>-->
+                                    <div style="text-align: center;">
+                                        {{form.submit(class="btn btn-secondary")}}
+                                    </div>
+                                    
+                                </form>  
+                            </div>   
+                        </div>
+                    </div>                                 
+                </div>
+            </div>
+        
+  
+      
+        <table class="table">
+
+            
+            <tr  class="table__header">
+                <th class="table__cell">Name</th>
+                <th class="table__cell">Area</th>
+                <th class="table__cell">district</th>
+                <th class="table__cell">state</th>
+                <th class="table__cell">total_beds</th>
+                <th class="table__cell">available_beds</th>
+                <th class="table__cell">total_ward_beds</th>
+                <th class="table__cell">available_ward_beds</th>
+                <th class="table__cell">total_ward_beds_with_oxygen</th>
+                <th class="table__cell">available_ward_beds_with_oxygen</th>
+                <th class="table__cell">total_icu_beds</th>
+                <th class="table__cell">available_icu_beds</th>
+                <th class="table__cell">total_icu_beds_with_oxygen</th>
+                <th class="table__cell">available_icu_beds_with_oxygen</th>
+            </tr>
+
+            {% for row in hospitals.items %}  
+            <tr style="text-align: center;" class="table__row">
+                <td class="table__cell">{{row.name}}</td>
+                <td class="table__cell">{{row.area}}</td>
+                <td class="table__cell">{{row.district}}</td>
+                <td class="table__cell">{{row.state}}</td>
+                <td class="table__cell">{{row.total_beds}}</td>
+                <td class="table__cell">{{row.available_beds}}</td>
+                <td class="table__cell">{{row.total_ward_beds}}</td>
+                <td class="table__cell">{{row.available_ward_beds}}</td>
+                <td class="table__cell">{{row.total_ward_beds_with_oxygen}}</td>
+                <td class="table__cell">{{row.available_ward_beds_with_oxygen}}</td>
+                <td class="table__cell">{{row.total_icu_beds}}</td>
+                <td class="table__cell">{{row.available_icu_beds}}</td>
+                <td class="table__cell">{{row.total_icu_beds_with_oxygen}}</td>
+                <td class="table__cell">{{row.available_icu_beds_with_oxygen}}</td>
+            </tr>   
+            {% endfor %}
+
+        </table>
+
+        <div style="text-align: center;">
+        {% for page_num in hospitals.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+            {% if page_num %}
+                {% if hospitals.page == page_num  %}
+                    <a  class="btn btn-dark mb-4" href="{{url_for('index', page=page_num, name=name, district=district, state=state, area=area, beds=beds) }}">{{ page_num }}</a>
+                {% else %}
+                    <a  class="btn btn-outline dark mb-4" href="{{ url_for('index', page=page_num, name=name, district=district, state=state, area=area, beds=beds) }}">{{ page_num }}</a>
+                {% endif %}
+            {% else %}
+            ...
+            {% endif %}
+        {% endfor %}
+            </div>
+
+        <script src="http://code.jquery.com/jquery.min.js"></script>
+	<script>
+	$(".selectFilter").on("change",function(){var e=$(this).data("target"),i=$(this).find(":selected").data("ref");$("select."+e).val("-1"),null==i?$("select."+e).find("option").each(function(){console.log("inside undefined"),$(this).removeAttr("disabled hidden")}):$("select."+e).find("option").each(function(){var e=$(this).data("belong"),t=$(this).val();i!=e&&-1!=t?($(this).prop("disabled",!0),$(this).prop("hidden",!0)):($(this).prop("disabled",!1),$(this).prop("hidden",!1))})});
+	</script>
+	<script>
+		$(document).ready(function(){
+			$("#tableSearch").on("keyup", function() {
+				var value = $(this).val().toLowerCase();
+				$("#myTable tr").filter(function() {
+					$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+				});
+			});
+		});
+
+    </script>
+</div>
+        
+</div>
+    
+</body>
+</html>
+
